@@ -1,15 +1,5 @@
-console.log(1)
+/* We make HTTP requests in order to get some data from a server or a database 
 
-console.log(2)
+We make these requests API endpoints 
 
-
-setTimeout(() => {
-    
-    console.log('Callback function just fired')  // This doesn't block the rest of the code from executing
-
-}, 2000)
-
-
-console.log(3)
-
-console.log(4)
+We get back response in JSON format  */
