@@ -2,7 +2,11 @@ const request = new XMLHttpRequest()
 
 request.addEventListener("readystatechange", () =>{
 
-    console.log(request, request.responseText)
+    if (request.readyState === 4) {
+        
+        console.log(request.responseText)      // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+
+    }
     
 }) 
 
