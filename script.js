@@ -1,5 +1,12 @@
-/* We make HTTP requests in order to get some data from a server or a database 
+const request = new XMLHttpRequest()
 
-We make these requests API endpoints 
+request.addEventListener("readystatechange", () =>{
 
-We get back response in JSON format  */
+    console.log(request, request.responseText)
+    
+}) 
+
+request.open("GET", 'https://jsonplaceholder.typicode.com/todos')
+
+request.send()
+
