@@ -5,8 +5,10 @@ const getTodos = (callback) =>{
     request.addEventListener("readystatechange", () =>{
     
         if (request.readyState === 4 && request.status === 200) {
+
+            const data = JSON.parse(request.responseText)
             
-            callback(undefined, request.responseText)
+            callback(undefined, data)
                                                                                 
         }else if (request.readyState === 4) {                        
     
@@ -22,10 +24,6 @@ const getTodos = (callback) =>{
 
 }
 
-
-console.log(1)
-
-console.log(2)
 
 
 
@@ -45,7 +43,3 @@ getTodos((err, data) =>{
        
 })
 
-
-console.log(3)
-
-console.log(4)
