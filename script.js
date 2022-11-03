@@ -1,20 +1,33 @@
-const request = new XMLHttpRequest()
+const getTodos = (callback) =>{
 
-request.addEventListener("readystatechange", () =>{
+    const request = new XMLHttpRequest()
 
-    if (request.readyState === 4 && request.status === 200) {
-        
-        console.log(request, request.responseText)   
-                                                                            
-    }else if (request.readyState === 4) {                                  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-
-        console.log('Could not fetch data')
-
-    }
+    request.addEventListener("readystatechange", () =>{
     
-}) 
+        if (request.readyState === 4 && request.status === 200) {
+            
+            callback(undefined, request.responseText)
+                                                                                
+        }else if (request.readyState === 4) {                        
+    
+            callback('Could not fetch data', undefined)
+    
+        }
+        
+    }) 
+    
+    request.open("GET", 'https://jsonplaceholder.typicode.com/todos/')
+    
+    request.send()
 
-request.open("GET", 'https://jsonplaceholder.typicode.com/todoss')
+}
 
-request.send()
 
+
+getTodos((err, data) =>{
+
+    console.log('callback fired')
+
+    console.log(err, data)
+       
+})
