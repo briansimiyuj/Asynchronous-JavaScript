@@ -23,11 +23,29 @@ const getTodos = (callback) =>{
 }
 
 
+console.log(1)
+
+console.log(2)
+
+
 
 getTodos((err, data) =>{
 
     console.log('callback fired')
 
-    console.log(err, data)
+    if (err) {
+        
+        console.log(err)
+
+    } else {
+
+        console.log(data)
+        
+    }
        
 })
+
+
+console.log(3)
+
+console.log(4)
