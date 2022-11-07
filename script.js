@@ -1,4 +1,4 @@
-const getTodos = (callback) =>{
+const hiphopSongs = (resource, callback) =>{
 
     const request = new XMLHttpRequest()
 
@@ -18,7 +18,7 @@ const getTodos = (callback) =>{
         
     }) 
     
-    request.open("GET", 'todos.json')
+    request.open("GET",resource)
     
     request.send()
 
@@ -27,19 +27,23 @@ const getTodos = (callback) =>{
 
 
 
-getTodos((err, data) =>{
+hiphopSongs("hiphop/kali.json", (err, data) =>{
 
-    console.log('callback fired')
+    console.log(data)
 
-    if (err) {
-        
-        console.log(err)
-
-    } else {
+    
+    hiphopSongs("hiphop/rubi.json", (err, data) => {
 
         console.log(data)
-        
-    }
+
+
+        hiphopSongs("hiphop/monaleo.json", (err, data) =>{
+
+            console.log(data)
+            
+        })
+
+    })
        
 })
 
