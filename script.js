@@ -27,23 +27,27 @@ const hiphopSongs = (resource, callback) =>{
 
 
 
-hiphopSongs("hiphop/kali.json", (err, data) =>{
+// Promise example
+
+
+const getSong = () =>{
+
+    return new Promise((resolve, reject) =>{
+
+        // fetch something
+
+        resolve('some song')
+
+        // reject('some error')
+
+    })
+
+}
+
+
+
+getSong().then((data) => {
 
     console.log(data)
 
-    
-    hiphopSongs("hiphop/rubi.json", (err, data) => {
-
-        console.log(data)
-
-
-        hiphopSongs("hiphop/monaleo.json", (err, data) =>{
-
-            console.log(data)
-            
-        })
-
-    })
-       
 })
-
