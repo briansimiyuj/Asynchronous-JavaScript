@@ -36,9 +36,9 @@ const getSong = () =>{
 
         // fetch something
 
-        resolve('some song')
+        // resolve('some song')
 
-        // reject('some error')
+        reject('some error')
 
     })
 
@@ -49,5 +49,9 @@ const getSong = () =>{
 getSong().then((data) => {
 
     console.log(data)
+
+}, (err) =>{
+
+    console.log(err)
 
 })
