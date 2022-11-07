@@ -46,11 +46,11 @@ const getSong = () =>{
 
 
 
-getSong().then((data) => {
+getSong().then(data =>{
 
     console.log(data)
 
-}, (err) =>{
+}).catch(err =>{
 
     console.log(err)
 
