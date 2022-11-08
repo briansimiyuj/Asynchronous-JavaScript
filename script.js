@@ -30,12 +30,26 @@ const hiphopSongs = (resource, callback) =>{
 }
 
 
-hiphopSongs('hiphop/ka.li.json').then(data =>{
+hiphopSongs('hiphop/kali.json').then(data =>{
 
-    console.log('Promise resolved', data)
+    console.log('Promise resolved:', data)
 
-}).catch(err =>{
 
-    console.log('Promise rejected', err)
+    return hiphopSongs('hiphop/rubi.json')
+
+}).then(data =>{
+
+    console.log('Promise 1 resolved:', data)
+
+
+    return hiphopSongs('hiphop/monaleo.json')
+
+}).then(data =>{
+
+    console.log('Promise 2 resolved:', data)
+
+}).catch(err =>{          
+
+    console.log('Promise rejected:', err)
 
 }) 
