@@ -1,15 +1,10 @@
-fetch('hiphop/kali.json').then((response) =>{
+const hiphopSongs = async() =>{
 
-    console.log('Resolved', response)
+    
 
-    return response.json()
+}
 
-}).then(data =>{
 
-    console.log(data)
+const music = hiphopSongs()
 
-}).catch((err) =>{
-
-    console.log('Rejected', err)
-
-})
+console.log(music)
