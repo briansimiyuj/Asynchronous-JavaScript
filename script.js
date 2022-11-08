@@ -9,15 +9,8 @@ const hiphopSongs = async() =>{
 }
 
 
-
-console.log(1)
-
-console.log(2)
-
 hiphopSongs()
 
     .then(data => console.log('Resolved:', data))
 
-console.log(3)
-
-console.log(4)
+    .catch(err => console.log('Rejected', err.message))
