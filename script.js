@@ -1,6 +1,13 @@
 const hiphopSongs = async() =>{
 
-    const response = await fetch('hiphop/monaleo.json')    // Awaits stops js from assigning value to response until data is fetched
+    const response = await fetch('hiphop/monaleoo.json') 
+
+
+    if (response.status !== 200) {
+        
+        throw new Error('Cannot fetch the data')
+
+    }
 
     const data = await response.json()
 
