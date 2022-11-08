@@ -4,9 +4,20 @@ const hiphopSongs = async() =>{
 
     const data = await response.json()
 
-    console.log(data)
+    return data
 
 }
 
 
+
+console.log(1)
+
+console.log(2)
+
 hiphopSongs()
+
+    .then(data => console.log('Resolved:', data))
+
+console.log(3)
+
+console.log(4)
