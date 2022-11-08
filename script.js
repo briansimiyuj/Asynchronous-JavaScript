@@ -1,55 +1,15 @@
-const hiphopSongs = (resource, callback) =>{
+fetch('hiphop/kali.json').then((response) =>{
 
-    return new Promise((resolve, reject) => {
+    console.log('Resolved', response)
 
-        const request = new XMLHttpRequest()
-
-        request.addEventListener("readystatechange", () =>{
-        
-            if (request.readyState === 4 && request.status === 200) {
-
-                const data = JSON.parse(request.responseText)
-                
-                resolve(data)
-                                                                                    
-            }else if (request.readyState === 4) {                        
-        
-                reject('error getting resource')
-        
-            }
-            
-        }) 
-        
-        request.open("GET", resource)
-        
-        request.send()
-
-        
-    })
-    
-}
-
-
-hiphopSongs('hiphop/kali.json').then(data =>{
-
-    console.log('Promise resolved:', data)
-
-
-    return hiphopSongs('hiphop/rubi.json')
+    return response.json()
 
 }).then(data =>{
 
-    console.log('Promise 1 resolved:', data)
+    console.log(data)
 
+}).catch((err) =>{
 
-    return hiphopSongs('hiphop/monaleo.json')
+    console.log('Rejected', err)
 
-}).then(data =>{
-
-    console.log('Promise 2 resolved:', data)
-
-}).catch(err =>{          
-
-    console.log('Promise rejected:', err)
-
-}) 
+})
