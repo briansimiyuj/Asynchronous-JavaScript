@@ -1,57 +1,41 @@
 const hiphopSongs = (resource, callback) =>{
 
-    const request = new XMLHttpRequest()
+    return new Promise((resolve, reject) => {
 
-    request.addEventListener("readystatechange", () =>{
-    
-        if (request.readyState === 4 && request.status === 200) {
+        const request = new XMLHttpRequest()
 
-            const data = JSON.parse(request.responseText)
-            
-            callback(undefined, data)
-                                                                                
-        }else if (request.readyState === 4) {                        
-    
-            callback('Could not fetch data', undefined)
-    
-        }
+        request.addEventListener("readystatechange", () =>{
         
-    }) 
-    
-    request.open("GET",resource)
-    
-    request.send()
+            if (request.readyState === 4 && request.status === 200) {
 
-}
+                const data = JSON.parse(request.responseText)
+                
+                resolve(data)
+                                                                                    
+            }else if (request.readyState === 4) {                        
+        
+                reject('error getting resource')
+        
+            }
+            
+        }) 
+        
+        request.open("GET", resource)
+        
+        request.send()
 
-
-
-
-// Promise example
-
-
-const getSong = () =>{
-
-    return new Promise((resolve, reject) =>{
-
-        // fetch something
-
-        // resolve('some song')
-
-        reject('some error')
-
+        
     })
-
+    
 }
 
 
+hiphopSongs('hiphop/ka.li.json').then(data =>{
 
-getSong().then(data =>{
-
-    console.log(data)
+    console.log('Promise resolved', data)
 
 }).catch(err =>{
 
-    console.log(err)
+    console.log('Promise rejected', err)
 
-})
+}) 
